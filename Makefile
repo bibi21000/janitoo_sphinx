@@ -230,12 +230,14 @@ rst:
 	@echo "Build finished. The ReST files are in $(BUILDDIR)/rst."
 
 install:
-	pip install -r requirements.txt
+	${PYTHON_EXEC} setup.py install
+	#~ pip install -r requirements.txt
 	@echo
 	@echo "Installation finished."
 
 develop:
-	pip install -r requirements.txt
+	${PYTHON_EXEC} setup.py develop
+	#~ pip install -r requirements.txt
 	@echo
 	@echo "Installation for developpers of ${MODULENAME} finished."
 

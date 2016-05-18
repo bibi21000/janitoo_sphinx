@@ -4,9 +4,6 @@ sphinxcontrib-blockdiag
 sphinxcontrib-nwdiag
 sphinxcontrib-seqdiag
 sphinxcontrib-spelling
-sphinxcontrib-httpdomain
-sphinxcontrib-restbuilder
-sphinxcontrib-jinjadomain
 sphinx_bootstrap_theme
 sphinxcontrib-images
 pygraphviz

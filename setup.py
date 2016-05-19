@@ -108,8 +108,8 @@ setup(
                      'sphinxcontrib-restbuilder',
                      'sphinxcontrib-jinjadomain',
                      'sphinxcontrib-httpdomain',
-                     'sphinx-git',
                      'sphinx_bootstrap_theme',
+                     'sphinx-git',
                     ],
     #~ tests_require=['janitoo_nosetests'],
     dependency_links = [

@@ -107,7 +107,7 @@ setup(
                      'sphinxcontrib-images',
                      'sphinxcontrib-restbuilder',
                      'sphinxcontrib-jinjadomain',
-                     'sphinxcontrib.httpdomain',
+                     'sphinxcontrib-httpdomain',
                      'sphinx-git',
                      'sphinx_bootstrap_theme',
                     ],

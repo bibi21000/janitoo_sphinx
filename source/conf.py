@@ -61,6 +61,8 @@ extensions = [
     'sphinxcontrib.jinjadomain',
     'sphinxcontrib.restbuilder',
     'sphinxcontrib.images',
+    'sphinxcontrib.autoprogram',
+    'janitoo_sphinx',
 ]
 
 blockdiag_fontpath = '/usr/share/fonts/truetype/ubuntu-font-family/Ubuntu-B.ttf'
@@ -79,12 +81,12 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'JanitOO'
-copyright = u'2015,2016 : Sebastien GALLET (bibi21000)'
+copyright = u'2014,2015,2016 : Sebastien GALLET (bibi21000)'
 
 try:
     package = packaging.Package(setuppy='setup', directory="../../..")
     project = package.get_name()
-    copyright = u'2015,2016 %s' % package.get_author().decode('utf-8')
+    copyright = u'2014,2015,2016 %s' % package.get_author().decode('utf-8')
 except:
     traceback.print_exc()
 

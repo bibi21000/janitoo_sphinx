@@ -67,7 +67,7 @@ TAGGED := $(shell git tag | grep -c v${janitoo_version} )
 NOSECOVER     = --cover-package=${MODULENAME} --with-coverage --cover-inclusive --cover-html --cover-html-dir=${BUILDDIR}/html/tools/coverage --with-html --html-file=${BUILDDIR}/html/tools/nosetests/index.html
 NOSEDOCKER     = --cover-package=${NOSEMODULES},${MODULENAME},${MOREMODULES} --with-coverage --cover-inclusive --with-xunit --xunit-testsuite-name=${MODULENAME}
 
-.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean html dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext tests
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"

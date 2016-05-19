@@ -284,7 +284,7 @@ tests:
 	-mkdir -p ${BUILDDIR}/docs/html/tools/coverage
 	-mkdir -p ${BUILDDIR}/docs/html/tools/nosetests
 	#~ export NOSESKIP=False && $(NOSE) $(NOSEOPTS) $(NOSECOVER) tests ; unset NOSESKIP
-	$(NOSE) $(NOSEOPTS) $(NOSECOVER) tests
+	#~ $(NOSE) $(NOSEOPTS) $(NOSECOVER) tests
 	@echo
 	@echo "Tests for ${MODULENAME} finished."
 

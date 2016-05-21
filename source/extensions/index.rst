@@ -1,13 +1,7 @@
 Janitoo's extensions
 ====================
 
-Contents:
+This package contains the following extensions for Janitoo.
 
-.. toctree::
-   :maxdepth: 1
-
-    Core extensions <extensions_core>
-    Web extensions <extensions_web>
-    Admin extensions <extensions_admin>
-
+.. jnt-extensions::
 

@@ -53,6 +53,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.graphviz',
     'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.coverage',
     'sphinxcontrib.blockdiag',
     'sphinxcontrib.nwdiag',
     'sphinxcontrib.actdiag',

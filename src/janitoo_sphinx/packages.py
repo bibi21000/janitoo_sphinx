@@ -31,6 +31,8 @@ import logging
 #~ logging.getLogger(__name__).addHandler(logging.NullHandler())
 logger = logging.getLogger(__name__)
 
+import six
+
 from docutils import nodes
 from docutils.parsers.rst import directives
 
@@ -39,20 +41,18 @@ from janitoo_sphinx.base import JanitooDirective
 from janitoo_sphinx.base import convert_to_list, format_docstring, is_string
 
 class PackageDirective(JanitooDirective):
-    """ Extension directive.
+    """ Package directive.
 
-    Injects Janitoo's extensions in the documentation.
+    Injects Janitoo's package informations in the documentation.
 
     Usage, in a sphinx documentation :
 
-        .. jnt-extensions::
-            :entry: entry name of the extension. If not set, all extensions are injected.
-            :types: types of extension. If not set, all types are injected.
+        .. jnt-package::
+            :infos: name, desc, fulldesc, tags, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
 
     """
     has_content = True
     option_spec = {
-            'entry': directives.unchanged,
             'types': convert_to_list,
         }
     doc_field_types = []
@@ -99,21 +99,6 @@ class PackageDirective(JanitooDirective):
 
         return [self._render_type(datas, s) for s in datas.keys()]
 
-    def _resolve_obj_to_docstring(self, obj, args):
-        """
-        """
-        # Resolve a view or validator to an object if type string
-        # and return docstring.
-        if is_string(obj):
-            if 'klass' in args:
-                ob = args['klass']
-                obj_ = getattr(ob, obj.lower())
-                return format_docstring(obj_)
-            else:
-                return ''
-        else:
-            return format_docstring(obj)
-
     def _render_type(self, datas, jtype):
         """
         """
@@ -133,5 +118,3 @@ class PackageDirective(JanitooDirective):
             jtype_node.append(item)
 
         return jtype_node
-
-

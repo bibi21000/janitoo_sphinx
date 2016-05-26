@@ -48,73 +48,40 @@ class PackageDirective(JanitooDirective):
     Usage, in a sphinx documentation :
 
         .. jnt-package::
-            :infos: name, desc, fulldesc, tags, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
+            :infos: desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
 
     """
     has_content = True
     option_spec = {
-            'types': convert_to_list,
+            'infos': convert_to_list,
         }
     doc_field_types = []
 
     def run(self):
         """
         """
-        jtypes = self.options.get('types', EXT_TYPES)
-        entry = self.options.get('entry', None)
+        infos = self.options.get('infos', ['desc', 'longdesc', 'keywords'])
         package = self._get_package()
-        pkg_map = {
-            'components' : {
-                    'callback' : package.get_janitoo_components,
-                    'title' : 'Components',
-            },
-            'threads' : {
-                    'callback' : package.get_janitoo_threads,
-                    'title' : 'Threads (bus)',
-            },
-            'bus' : {
-                    'callback' : package.get_janitoo_bus_extensions,
-                    'title' : 'Bus extensions',
-            },
-            'values' : {
-                    'callback' : package.get_janitoo_values,
-                    'title' : 'Values in factory',
-            },
-            'models' : {
-                    'callback' : package.get_janitoo_models,
-                    'title' : 'Database Models',
-            },
-        }
 
-        datas = {}
-        for jtype in jtypes:
-            data = pkg_map[jtype]['callback']()
-            if len(data) > 0:
-                if entry is None:
-                    datas[jtype] = { 'datas' : data, 'title' : pkg_map[jtype]['title']}
-                else:
-                    for item in data:
-                        if item == entry:
-                            datas[jtype] = { 'datas' : {item : data[item]}, 'title' : pkg_map[jtype]['title']}
+        jpackage_id = "package-%d" % self.env.new_serialno('jpackage')
+        jpackage_node = nodes.section(ids=[jpackage_id])
 
-        return [self._render_type(datas, s) for s in datas.keys()]
+        title = '%s' % (package.get_name())
+        jpackage_node += nodes.title(text=title)
 
-    def _render_type(self, datas, jtype):
-        """
-        """
-        jtype_id = "type-%d" % self.env.new_serialno('jtype')
-        jtype_node = nodes.section(ids=[jtype_id])
+        if 'desc' in infos:
+            item = nodes.paragraph(text=six.text_type(package.get_description()))
+            jpackage_node.append(item)
 
-        title = '%s' % (datas[jtype]['title'])
-        jtype_node += nodes.title(text=title)
+        if 'longdesc' in infos:
+            item = nodes.paragraph(text=six.text_type(package.get_long_description()))
+            jpackage_node.append(item)
 
-        for data in sorted(datas[jtype]['datas'].keys()):
-            item = nodes.list_item()
-            item += [
-                nodes.strong(text=six.text_type(data)),
-                nodes.inline(text=" : "),
-                nodes.emphasis(text=six.text_type(datas[jtype]['datas'][data])),
-            ]
-            jtype_node.append(item)
-
-        return jtype_node
+        if 'keywords' in infos:
+            for data in sorted(package.get_keywords()):
+                item = nodes.list_item()
+                item += [
+                    nodes.inline(text=six.text_type(data)),
+                ]
+                jpackage_node.append(item)
+        return [jpackage_node]

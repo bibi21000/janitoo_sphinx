@@ -33,7 +33,10 @@ logger = logging.getLogger(__name__)
 
 import sys
 
+import six
+
 import docutils
+from docutils.parsers.rst import Directive
 from docutils.writers.html4css1 import Writer, HTMLTranslator
 
 from janitoo_packaging import packaging
@@ -62,7 +65,7 @@ class JanitooDirective(Directive):
     def __init__(self, *args, **kwargs):
         """
         """
-        super(JanitooDirective, self).__init__(*args, **kwargs)
+        Directive.__init__(self, *args, **kwargs)
         self.env = self.state.document.settings.env
 
     def _get_package(self):
@@ -111,7 +114,7 @@ def trim(docstring):
         trimmed.pop(0)
     # Return a single string:
     res = '\n'.join(trimmed)
-    if not PY3 and not isinstance(res, unicode):
+    if not six.PY3 and not isinstance(res, unicode):
         res = res.decode('utf8')
     return res
 

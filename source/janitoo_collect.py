@@ -1,11 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import sys
-from pkg_resources import iter_entry_points
 from janitoo_packaging import packaging
 
-package = packaging.Package(setuppy='setup', directory="../../..")
-#~ package = packaging.Package(setuppy='setup', directory="../../janitoo")
+package = packaging.Package(setuppy='setup', directory="../../..")#~ package = packaging.Package(setuppy='setup', directory="../../janitoo")
 
 def print_header(name):
     title = "%s package"%name
@@ -14,13 +11,6 @@ def print_header(name):
     print
     print "Show janitoo's extensions."
     print
-    #~ print ".. toctree::"
-    #~ print "   :maxdepth: 2"
-    #~ print
-    #~ print "   Core extensions <extensions_core>"
-    #~ print "   Web extensions <extensions_web>"
-    #~ print "   Admin extensions <extensions_admin>"
-    #~ print
 
 def print_section(section):
     print section

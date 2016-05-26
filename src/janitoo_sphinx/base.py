@@ -82,7 +82,7 @@ class JanitooDirective(Directive):
         """
         # Resolve a view or validator to an object if type string
         # and return docstring.
-        if is_string(obj):
+        if isinstance(obj, six.string_types):
             if 'klass' in args:
                 ob = args['klass']
                 obj_ = getattr(ob, obj.lower())

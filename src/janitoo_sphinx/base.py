@@ -32,21 +32,9 @@ import logging
 logger = logging.getLogger(__name__)
 
 import sys
-from datetime import datetime
-import re
-import json
-from importlib import import_module
-try:
-    from importlib import reload
-except ImportError:
-    pass
-import six
 
 import docutils
-from docutils import nodes, core
-from docutils.parsers.rst import Directive, directives
 from docutils.writers.html4css1 import Writer, HTMLTranslator
-from sphinx.util.docfields import DocFieldTransformer
 
 from janitoo_packaging import packaging
 

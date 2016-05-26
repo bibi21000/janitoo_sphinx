@@ -38,7 +38,7 @@ from docutils.parsers.rst import directives
 
 from janitoo_sphinx.base import EXT_TYPES
 from janitoo_sphinx.base import JanitooDirective
-from janitoo_sphinx.base import convert_to_list, format_docstring
+from janitoo_sphinx.base import convert_to_list
 
 class ExtensionDirective(JanitooDirective):
     """ Extension directive.

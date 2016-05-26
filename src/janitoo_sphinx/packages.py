@@ -31,11 +31,14 @@ import logging
 #~ logging.getLogger(__name__).addHandler(logging.NullHandler())
 logger = logging.getLogger(__name__)
 
-import six
+import docutils
+from docutils import nodes
+from docutils.parsers.rst import directives
+from docutils.writers.html4css1 import Writer
 
 from janitoo_sphinx.base import EXT_TYPES
 from janitoo_sphinx.base import JanitooDirective
-from janitoo_sphinx.base import convert_to_list
+from janitoo_sphinx.base import convert_to_list, format_docstring, is_string
 
 class PackageDirective(JanitooDirective):
     """ Extension directive.

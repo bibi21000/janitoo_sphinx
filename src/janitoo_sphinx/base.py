@@ -169,9 +169,3 @@ def rst2node(data):
             par += child
         return par
 
-def setup(app):
-    """
-    """
-    app.add_config_value('janitoo_source', False, 'html')
-    app.add_directive('jnt-extensions', ExtensionDirective)
-

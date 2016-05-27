@@ -60,7 +60,7 @@ class PackageDirective(JanitooDirective):
     def run(self):
         """
         """
-        infos = self.options.get('infos', ['title','desc', 'longdesc', 'keywords', 'license'])
+        infos = self.options.get('infos', ['title','desc', 'author', 'longdesc', 'keywords', 'license'])
         package = self._get_package()
 
         jpackage_id = "package-%d" % self.env.new_serialno('jpackage')
@@ -74,6 +74,20 @@ class PackageDirective(JanitooDirective):
             jpackage_node.append(
                 nodes.paragraph(
                     text=six.text_type(package.get_description())
+                )
+            )
+
+        if 'author' in infos:
+            jpackage_node.append(
+                nodes.paragraph(
+                    text=six.text_type(package.get_author())
+                )
+            )
+
+        if 'nickname' in infos:
+            jpackage_node.append(
+                nodes.paragraph(
+                    text=six.text_type(package.get_nickname())
                 )
             )
 

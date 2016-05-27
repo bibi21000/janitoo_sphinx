@@ -87,9 +87,10 @@ copyright = u'2014,2015,2016 : Sebastien GALLET (bibi21000)'
 try:
     package = packaging.Package(setuppy='setup', directory="../../..")
     project = package.get_name()
-    copyright = u'2014,2015,2016 %s' % package.get_author().decode('utf-8')
+    copyright = u'2014,2015,2016 %s' % package.get_author()
 except Exception:
     traceback.print_exc()
+    #~ pass
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -266,7 +267,7 @@ try:
       ('index',
        '%s.tex'%package.get_name(),
         u'%s Documentation'%package.get_name(),
-        u'%s'%package.get_author().decode('utf-8'),
+        u'%s'%package.get_author(),
         'manual'),
     ]
 except Exception:
@@ -307,7 +308,7 @@ try:
       ('index',
        '%s'%package.get_name(),
         u'%s Documentation'%package.get_name(),
-        u'%s'%package.get_author().decode('utf-8'),
+        u'%s'%package.get_author(),
         'manual'),
     ]
 except Exception:
@@ -333,9 +334,9 @@ try:
       ('index',
        '%s'%package.get_name(),
         u'%s Documentation'%package.get_name(),
-        u'%s'%package.get_author().decode('utf-8'),
+        u'%s'%package.get_author(),
        '%s'%package.get_name(),
-       '%s'%package.get_description().decode('utf-8'),
+       '%s'%package.get_description(),
         'Miscellaneous'),
     ]
 except Exception:

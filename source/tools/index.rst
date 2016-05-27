@@ -4,6 +4,8 @@ Developpers Tools
 
 .. jnt-badge::
 
+|
+
 .. jnt-extensions::
 
 Reports

@@ -36,7 +36,7 @@ import six
 from docutils import nodes
 from docutils.parsers.rst import directives
 
-from janitoo_sphinx.base import EXT_TYPES
+from janitoo_sphinx.base import INFO_TYPES
 from janitoo_sphinx.base import JanitooDirective
 from janitoo_sphinx.base import convert_to_list
 
@@ -60,7 +60,7 @@ class PackageDirective(JanitooDirective):
     def run(self):
         """
         """
-        infos = self.options.get('infos', ['title','desc', 'author', 'longdesc', 'keywords', 'license'])
+        infos = self.options.get('infos', ['title','desc', 'longdesc'])
         package = self._get_package()
 
         jpackage_id = "package-%d" % self.env.new_serialno('jpackage')

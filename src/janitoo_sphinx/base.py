@@ -41,8 +41,9 @@ from docutils.writers.html4css1 import Writer, HTMLTranslator
 
 from janitoo_packaging import packaging
 
-EXT_TYPES = [ 'models', 'threads', 'components', 'bus', 'values']
-BADG_TYPES = [ 'github', 'githubio', 'travis', 'circle', 'landscape']
+EXT_TYPES = ['models', 'threads', 'components', 'bus', 'values']
+BADG_TYPES = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']
+INFO_TYPES = ['title','desc', 'author', 'longdesc', 'keywords', 'license']
 
 def convert_to_list(argument):
     """Convert a comma separated list into a list of python values"""
@@ -74,7 +75,10 @@ class JanitooDirective(Directive):
         directory="../.."
         if self.env.config.janitoo_source:
             directory = self.env.config.janitoo_source
-        package = packaging.Package(setuppy='setup', directory=directory)
+        nickname='github_user'
+        if self.env.config.janitoo_nickname:
+            nickname = self.env.config.janitoo_nickname
+        package = packaging.Package(setuppy='setup', directory=directory, nickname=nickname)
         return package
 
     def _resolve_obj_to_docstring(self, obj, args):

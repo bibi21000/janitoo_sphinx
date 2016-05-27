@@ -445,3 +445,12 @@ try:
     html_theme_options["navbar_title"] = "%s"%package.get_name()
 except Exception:
     traceback.print_exc()
+
+
+#Janitoo contribution
+
+#The user for github, travis, ...
+janitoo_nickname = 'bibi21000'
+
+#Where to find sources of the janitoo package
+janitoo_source = "../.."

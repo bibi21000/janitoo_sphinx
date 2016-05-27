@@ -30,6 +30,7 @@ __copyright__ = "Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi2100
 from base import JanitooDirective
 from extensions import ExtensionDirective
 from packages import PackageDirective
+from badges import BadgeNode, BadgeDirective, visit_badge_node, depart_badge_node
 
 def setup(app):
     """
@@ -37,4 +38,10 @@ def setup(app):
     app.add_config_value('janitoo_source', False, 'html')
     app.add_directive('jnt-extensions', ExtensionDirective)
     app.add_directive('jnt-package', PackageDirective)
+    app.add_node(BadgeNode,
+                 html=(visit_badge_node, depart_badge_node),
+                 latex=(visit_badge_node, depart_badge_node),
+                 text=(visit_badge_node, depart_badge_node))
+    app.add_config_value('janitoo_nickname', False, 'html')
+    app.add_directive('jnt-badge', BadgeDirective)
 

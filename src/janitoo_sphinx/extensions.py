@@ -121,5 +121,3 @@ class ExtensionDirective(JanitooDirective):
             jtype_node.append(item)
 
         return jtype_node
-
-

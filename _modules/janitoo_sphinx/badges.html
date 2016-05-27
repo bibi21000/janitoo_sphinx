@@ -73,6 +73,12 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../usage.html"> Using Sphinx contributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../usage.html#jnt-package">jnt-package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage.html#jnt-extensions">jnt-extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../usage.html#jnt-badges">jnt-badges</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../../using_doc.html"> Using documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../../using_doc.html#the-header">The header</a></li>
 </ul>
@@ -149,7 +155,7 @@
 <span class="kn">from</span> <span class="nn">docutils.parsers.rst</span> <span class="kn">import</span> <span class="n">directives</span>
 <span class="kn">from</span> <span class="nn">docutils.parsers.rst.directives.images</span> <span class="kn">import</span> <span class="n">Image</span>
 
-<span class="n">BADG_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;github&#39;</span><span class="p">,</span> <span class="s">&#39;travis&#39;</span><span class="p">,</span> <span class="s">&#39;circle&#39;</span><span class="p">,</span> <span class="s">&#39;landscape&#39;</span><span class="p">,</span> <span class="s">&#39;documentation&#39;</span><span class="p">,</span> <span class="s">&#39;docker&#39;</span><span class="p">]</span>
+<span class="n">BADGE_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;github&#39;</span><span class="p">,</span> <span class="s">&#39;travis&#39;</span><span class="p">,</span> <span class="s">&#39;circle&#39;</span><span class="p">,</span> <span class="s">&#39;landscape&#39;</span><span class="p">,</span> <span class="s">&#39;documentation&#39;</span><span class="p">,</span> <span class="s">&#39;docker&#39;</span><span class="p">]</span>
 <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">Availlable bagdes</span>
 <span class="sd">&quot;&quot;&quot;</span>
@@ -171,8 +177,10 @@
 
 <span class="sd">    Usage, in a sphinx documentation :</span>
 
-<span class="sd">    \.. jnt-badge::</span>
-<span class="sd">        :badges: travis, ...</span>
+<span class="sd">    .. code:: bash</span>
+
+<span class="sd">        .. jnt-badge::</span>
+<span class="sd">            :badges: travis, ...</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">has_content</span> <span class="o">=</span> <span class="bp">True</span>

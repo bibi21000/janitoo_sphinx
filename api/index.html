@@ -72,6 +72,12 @@
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../usage.html"> Using Sphinx contributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#jnt-package">jnt-package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#jnt-extensions">jnt-extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../usage.html#jnt-badges">jnt-badges</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../using_doc.html"> Using documentation</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../using_doc.html#the-header">The header</a></li>
 </ul>
@@ -117,8 +123,8 @@
 <div class="section" id="module-janitoo_sphinx.badges">
 <span id="janitoo-sphinx-badges-module"></span><h2>janitoo_sphinx.badges module<a class="headerlink" href="#module-janitoo_sphinx.badges" title="Permalink to this headline">¶</a></h2>
 <dl class="data">
-<dt id="janitoo_sphinx.badges.BADG_TYPES">
-<tt class="descclassname">janitoo_sphinx.badges.</tt><tt class="descname">BADG_TYPES</tt><em class="property"> = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']</em><a class="headerlink" href="#janitoo_sphinx.badges.BADG_TYPES" title="Permalink to this definition">¶</a></dt>
+<dt id="janitoo_sphinx.badges.BADGE_TYPES">
+<tt class="descclassname">janitoo_sphinx.badges.</tt><tt class="descname">BADGE_TYPES</tt><em class="property"> = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']</em><a class="headerlink" href="#janitoo_sphinx.badges.BADGE_TYPES" title="Permalink to this definition">¶</a></dt>
 <dd><p>Availlable bagdes</p>
 </dd></dl>
 
@@ -129,18 +135,10 @@
 <p>Badge directive.</p>
 <p>Injects Janitoo&#8217;s badges informations in the documentation.</p>
 <p>Usage, in a sphinx documentation :</p>
-<dl class="docutils">
-<dt>.. jnt-badge::</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">badges:</th><td class="field-body">travis, ...</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
+<div class="code bash highlight-python"><div class="highlight"><pre>.. jnt-badge::
+    :badges: travis, ...
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="janitoo_sphinx.badges.BadgeDirective.doc_field_types">
 <tt class="descname">doc_field_types</tt><em class="property"> = []</em><a class="headerlink" href="#janitoo_sphinx.badges.BadgeDirective.doc_field_types" title="Permalink to this definition">¶</a></dt>
@@ -153,7 +151,7 @@
 
 <dl class="attribute">
 <dt id="janitoo_sphinx.badges.BadgeDirective.option_spec">
-<tt class="descname">option_spec</tt><em class="property"> = {'badges': &lt;function convert_to_list at 0x2b1a99851050&gt;}</em><a class="headerlink" href="#janitoo_sphinx.badges.BadgeDirective.option_spec" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">option_spec</tt><em class="property"> = {'badges': &lt;function convert_to_list at 0x2b3651f62410&gt;}</em><a class="headerlink" href="#janitoo_sphinx.badges.BadgeDirective.option_spec" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -267,20 +265,11 @@ front of the text in docstrings.</p>
 <p>Extension directive.</p>
 <p>Injects Janitoo&#8217;s extensions in the documentation.</p>
 <p>Usage, in a sphinx documentation :</p>
-<dl class="docutils">
-<dt>.. jnt-extensions::</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">entry:</th><td class="field-body">entry name of the extension. If not set, all extensions are injected.</td>
-</tr>
-<tr class="field-even field"><th class="field-name">types:</th><td class="field-body">types of extension. If not set, all types are injected.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
+<div class="code bash highlight-python"><div class="highlight"><pre>.. jnt-extensions::
+    :entry: entry name of the extension. If not set, all extensions are injected.
+    :types: types of extension. If not set, all types are injected.
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="janitoo_sphinx.extensions.ExtensionDirective.doc_field_types">
 <tt class="descname">doc_field_types</tt><em class="property"> = []</em><a class="headerlink" href="#janitoo_sphinx.extensions.ExtensionDirective.doc_field_types" title="Permalink to this definition">¶</a></dt>
@@ -293,7 +282,7 @@ front of the text in docstrings.</p>
 
 <dl class="attribute">
 <dt id="janitoo_sphinx.extensions.ExtensionDirective.option_spec">
-<tt class="descname">option_spec</tt><em class="property"> = {'entry': &lt;function unchanged at 0x2b1a94f13320&gt;, 'types': &lt;function convert_to_list at 0x2b1a99851050&gt;}</em><a class="headerlink" href="#janitoo_sphinx.extensions.ExtensionDirective.option_spec" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">option_spec</tt><em class="property"> = {'entry': &lt;function unchanged at 0x2b364d624320&gt;, 'types': &lt;function convert_to_list at 0x2b3651f62410&gt;}</em><a class="headerlink" href="#janitoo_sphinx.extensions.ExtensionDirective.option_spec" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">
@@ -319,18 +308,10 @@ front of the text in docstrings.</p>
 <p>Package directive.</p>
 <p>Injects Janitoo&#8217;s package informations in the documentation.</p>
 <p>Usage, in a sphinx documentation :</p>
-<dl class="docutils">
-<dt>.. jnt-package::</dt>
-<dd><table class="first last docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">infos:</th><td class="field-body">desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.</td>
-</tr>
-</tbody>
-</table>
-</dd>
-</dl>
+<div class="code bash highlight-python"><div class="highlight"><pre>.. jnt-package::
+    :infos: desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
+</pre></div>
+</div>
 <dl class="attribute">
 <dt id="janitoo_sphinx.packages.PackageDirective.doc_field_types">
 <tt class="descname">doc_field_types</tt><em class="property"> = []</em><a class="headerlink" href="#janitoo_sphinx.packages.PackageDirective.doc_field_types" title="Permalink to this definition">¶</a></dt>
@@ -343,7 +324,7 @@ front of the text in docstrings.</p>
 
 <dl class="attribute">
 <dt id="janitoo_sphinx.packages.PackageDirective.option_spec">
-<tt class="descname">option_spec</tt><em class="property"> = {'infos': &lt;function convert_to_list at 0x2b1a99851050&gt;}</em><a class="headerlink" href="#janitoo_sphinx.packages.PackageDirective.option_spec" title="Permalink to this definition">¶</a></dt>
+<tt class="descname">option_spec</tt><em class="property"> = {'infos': &lt;function convert_to_list at 0x2b3651f62410&gt;}</em><a class="headerlink" href="#janitoo_sphinx.packages.PackageDirective.option_spec" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 <dl class="method">

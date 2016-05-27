@@ -36,7 +36,7 @@ from docutils import nodes
 from docutils.parsers.rst import directives
 from docutils.parsers.rst.directives.images import Image
 
-BADG_TYPES = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']
+BADGE_TYPES = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']
 """
 Availlable bagdes
 """
@@ -58,8 +58,10 @@ class BadgeDirective(JanitooDirective):
 
     Usage, in a sphinx documentation :
 
-    \.. jnt-badge::
-        :badges: travis, ...
+    .. code:: bash
+
+        .. jnt-badge::
+            :badges: travis, ...
 
     """
     has_content = True

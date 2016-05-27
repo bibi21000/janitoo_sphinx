@@ -42,9 +42,11 @@ class ExtensionDirective(JanitooDirective):
 
     Usage, in a sphinx documentation :
 
-    \.. jnt-extensions::
-        :entry: entry name of the extension. If not set, all extensions are injected.
-        :types: types of extension. If not set, all types are injected.
+    .. code:: bash
+
+        .. jnt-extensions::
+            :entry: entry name of the extension. If not set, all extensions are injected.
+            :types: types of extension. If not set, all types are injected.
 
     """
     has_content = True

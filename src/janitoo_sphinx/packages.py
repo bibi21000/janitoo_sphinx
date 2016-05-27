@@ -44,8 +44,10 @@ class PackageDirective(JanitooDirective):
 
     Usage, in a sphinx documentation :
 
-    \.. jnt-package::
-        :infos: desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
+    .. code:: bash
+
+        .. jnt-package::
+            :infos: desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
 
     """
     has_content = True

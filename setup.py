@@ -66,7 +66,8 @@ def data_files_config(res, rsrc, src, pattern):
 
 setup(
     name = 'janitoo_sphinx',
-    description = "Sphinx for Janitoo",
+    description = "Sphinx contribution for Janitoo",
+    long_description = "A collection of Sphinx contributions to help writing documentation for Janitoo.",
     author='Sébastien GALLET aka bibi2100 <bibi21000@gmail.com>',
     author_email='bibi21000@gmail.com',
     license = """
@@ -90,8 +91,6 @@ setup(
     zip_safe = False,
     packages = find_packages('src', exclude=["scripts", "docs", "config"]),
     include_package_data=True,
-    #~ data_files = data_files,
-    #~ scripts=['src/scripts/jnt_collect', 'src/scripts/jnt_spy', 'src/scripts/jnt_query'],
     package_dir = { '': 'src' },
     keywords = "documentation",
     install_requires=[

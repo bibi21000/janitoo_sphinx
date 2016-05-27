@@ -346,6 +346,24 @@ doc: janidoc apidoc
 	@echo
 	@echo "Documentation finished."
 
+doc-commit: doc
+	git checkout gh-pages
+	cp -Rf ${BUILDPKGDIR}/docs/html/* .
+	git add *.html
+	git add *.js
+	git add tools/
+	git add api/
+	git add extensions/
+	-git add _images/
+	-git add _modules/
+	-git add _sources/
+	-git add _static/
+	git commit -m "Auto-commit documentation" -a
+	git push origin gh-pages
+	git checkout master
+	@echo
+	@echo "Documentation published to github.io."
+
 github.io:
 	git checkout --orphan gh-pages
 	git rm -rf .

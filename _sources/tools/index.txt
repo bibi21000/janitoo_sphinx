@@ -10,8 +10,6 @@ Developpers Tools
 
 .. jnt-extensions::
 
-|
-
 Reports
 =======
 

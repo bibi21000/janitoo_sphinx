@@ -392,7 +392,6 @@ html_theme_options = {
     'navbar_links': [
         ("Tools", "tools/index"),
         ("Reference", "api/index"),
-        ("Janitoo extensions", "extensions/index"),
         #~ ("Link", "http://example.com", True),
     ],
 

@@ -329,9 +329,7 @@ janidoc:
 
 apidoc:
 	-rm -rf ${BUILDPKGDIR}/janidoc/source/api
-	-rm -rf ${BUILDPKGDIR}/janidoc/source/extensions
 	-mkdir -p ${BUILDPKGDIR}/janidoc/source/api
-	-mkdir -p ${BUILDPKGDIR}/janidoc/source/extensions
 	cp -Rf . ${BUILDPKGDIR}/janidoc/
 	cd ${BUILDPKGDIR}/janidoc/source/api && sphinx-apidoc --force --no-toc -o . ../../src/
 	cd ${BUILDPKGDIR}/janidoc/source/api && mv ${MODULENAME}.rst index.rst
@@ -353,7 +351,6 @@ doc-commit: doc
 	git add *.js
 	git add tools/
 	git add api/
-	git add extensions/
 	-git add _images/
 	-git add _modules/
 	-git add _sources/

@@ -5,6 +5,21 @@ Usage
 Janitoo provides helpers for writing documentation with sphinx.
 All informations are extracted from setup.py.
 
+Configuration
+=============
+
+Edit conf.py :
+
+.. code:: python
+
+    #Janitoo contribution
+
+    #The user for github, travis, ...
+    janitoo_nickname = 'bibi21000'
+
+    #Where to find sources of the janitoo package
+    janitoo_source = "../.."
+
 jnt-package
 ===========
 

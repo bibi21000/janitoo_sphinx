@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Sources :
-
- - http://www.sphinx-doc.org/en/stable/extdev/tutorial.html
- - https://github.com/mozilla-services/cornice/blob/master/cornice/ext/sphinxext.py
-
-"""
 __license__ = """
     This file is part of Janitoo.
 
@@ -40,10 +33,6 @@ from docutils.parsers.rst import Directive
 from docutils.writers.html4css1 import Writer, HTMLTranslator
 
 from janitoo_packaging import packaging
-
-EXT_TYPES = ['models', 'threads', 'components', 'bus', 'values']
-BADG_TYPES = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']
-INFO_TYPES = ['title','desc', 'author', 'longdesc', 'keywords', 'license']
 
 def convert_to_list(argument):
     """Convert a comma separated list into a list of python values"""

@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Sources :
-
- - http://www.sphinx-doc.org/en/stable/extdev/tutorial.html
- - https://github.com/mozilla-services/cornice/blob/master/cornice/ext/sphinxext.py
-
-"""
 __license__ = """
     This file is part of Janitoo.
 
@@ -36,13 +29,17 @@ import six
 from docutils import nodes
 from docutils.parsers.rst import directives
 
-from janitoo_sphinx.base import BADG_TYPES
 from janitoo_sphinx.base import JanitooDirective
 from janitoo_sphinx.base import convert_to_list
 import os
 from docutils import nodes
 from docutils.parsers.rst import directives
 from docutils.parsers.rst.directives.images import Image
+
+BADG_TYPES = ['github', 'travis', 'circle', 'landscape', 'documentation', 'docker']
+"""
+Availlable bagdes
+"""
 
 class BadgeNode(nodes.image, nodes.General, nodes.Element):
     pass
@@ -55,14 +52,14 @@ def depart_badge_node(self, node):
 
 class BadgeDirective(JanitooDirective):
 
-    """ Badges directive.
+    """ Badge directive.
 
     Injects Janitoo's badges informations in the documentation.
 
     Usage, in a sphinx documentation :
 
-        .. jnt-badge::
-            :badges: travis, ...
+    \.. jnt-badge::
+        :badges: travis, ...
 
     """
     has_content = True

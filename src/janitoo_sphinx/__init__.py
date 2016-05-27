@@ -2,8 +2,8 @@
 """
 Sources :
 
- - http://www.sphinx-doc.org/en/stable/extdev/tutorial.html
- - https://github.com/mozilla-services/cornice/blob/master/cornice/ext/sphinxext.py
+- http://www.sphinx-doc.org/en/stable/extdev/tutorial.html
+- https://github.com/mozilla-services/cornice/blob/master/cornice/ext/sphinxext.py
 
 """
 __license__ = """

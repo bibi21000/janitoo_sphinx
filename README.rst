@@ -1,10 +1,15 @@
-.. image:: https://travis-ci.org/bibi21000/janitoo_sphinx.svg?branch=master
-    :target: https://travis-ci.org/bibi21000/janitoo_sphinx
-    :alt: Travis status
+===============
+The README file
+===============
 
-==============
-Janitoo Sphinx
-==============
+This file will be published on your github account
 
-Tools for building Janitoo documentation.
+
+A section
+=========
+A text in this section.
+
+Documentation
+=============
+You can browse online documentation here : https://bibi21000.github.io/janitoo_sphinx/.
 

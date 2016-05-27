@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Sources :
-
- - http://www.sphinx-doc.org/en/stable/extdev/tutorial.html
- - https://github.com/mozilla-services/cornice/blob/master/cornice/ext/sphinxext.py
-
-"""
 __license__ = """
     This file is part of Janitoo.
 
@@ -36,10 +29,12 @@ import six
 from docutils import nodes
 from docutils.parsers.rst import directives
 
-from janitoo_sphinx.base import EXT_TYPES
 from janitoo_sphinx.base import JanitooDirective
 from janitoo_sphinx.base import convert_to_list
 
+EXT_TYPES = ['models', 'threads', 'components', 'bus', 'values']
+"""Availlable extensions types
+"""
 class ExtensionDirective(JanitooDirective):
     """ Extension directive.
 
@@ -47,9 +42,9 @@ class ExtensionDirective(JanitooDirective):
 
     Usage, in a sphinx documentation :
 
-        .. jnt-extensions::
-            :entry: entry name of the extension. If not set, all extensions are injected.
-            :types: types of extension. If not set, all types are injected.
+    \.. jnt-extensions::
+        :entry: entry name of the extension. If not set, all extensions are injected.
+        :types: types of extension. If not set, all types are injected.
 
     """
     has_content = True

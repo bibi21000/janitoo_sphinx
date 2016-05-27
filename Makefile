@@ -20,6 +20,7 @@ ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) sou
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) source
 
 ARCHBASE      = archive
+BUILDPKGDIR   = /tmp/janitoo_sphinx_build
 DISTDIR       = dists
 NOSE          = $(shell which nosetests)
 NOSEOPTS      = --verbosity=2
@@ -281,25 +282,20 @@ docker-tests:
 	@echo "Docker tests for ${MODULENAME} finished."
 
 tests:
-	-mkdir -p ${BUILDDIR}/docs/html/tools/coverage
-	-mkdir -p ${BUILDDIR}/docs/html/tools/nosetests
+	-mkdir -p ${BUILDPKGDIR}/docs/html/tools/coverage
+	-mkdir -p ${BUILDPKGDIR}/docs/html/tools/nosetests
 	#~ export NOSESKIP=False && $(NOSE) $(NOSEOPTS) $(NOSECOVER) tests ; unset NOSESKIP
 	#~ $(NOSE) $(NOSEOPTS) $(NOSECOVER) tests
 	@echo
 	@echo "Tests for ${MODULENAME} finished."
 
-certification:
-	$(NOSE) --verbosity=2 --with-xunit --xunit-file=certification/result.xml certification
-	@echo
-	@echo "Certification for ${MODULENAME} finished."
-
 build:
-	${PYTHON_EXEC} setup.py build --build-base $(BUILDDIR)
+	${PYTHON_EXEC} setup.py build --build-base $(BUILDPKGDIR)
 
 egg:
-	-mkdir -p $(BUILDDIR)
+	-mkdir -p $(BUILDPKGDIR)
 	-mkdir -p $(DISTDIR)
-	${PYTHON_EXEC} setup.py bdist_egg --bdist-dir $(BUILDDIR) --dist-dir $(DISTDIR)
+	${PYTHON_EXEC} setup.py bdist_egg --bdist-dir $(BUILDPKGDIR) --dist-dir $(DISTDIR)
 
 tar:
 	-mkdir -p $(DISTDIR)
@@ -321,31 +317,32 @@ status:
 	git status
 
 clean-doc:
-	-rm -Rf ${BUILDDIR}/docs
-	-rm -Rf ${BUILDDIR}/janidoc
+	-rm -Rf ${BUILDPKGDIR}/docs
+	-rm -Rf ${BUILDPKGDIR}/janidoc
 	-rm -f objects.inv
 	-rm -f generated_doc
 	-rm -f janidoc
 
 janidoc:
-	-ln -s /opt/janitoo/src/janitoo_sphinx janidoc
+	-mkdir -p ${BUILDPKGDIR}/janidoc
+	-cp -Rf .${BUILDPKGDIR}/janidoc
 
 apidoc:
-	-rm -rf ${BUILDDIR}/janidoc/source/api
-	-rm -rf ${BUILDDIR}/janidoc/source/extensions
-	-mkdir -p ${BUILDDIR}/janidoc/source/api
-	-mkdir -p ${BUILDDIR}/janidoc/source/extensions
-	cp -Rf janidoc/* ${BUILDDIR}/janidoc/
-	cd ${BUILDDIR}/janidoc/source/api && sphinx-apidoc --force --no-toc -o . ../../../../src/
-	cd ${BUILDDIR}/janidoc/source/api && mv ${MODULENAME}.rst index.rst
+	-rm -rf ${BUILDPKGDIR}/janidoc/source/api
+	-rm -rf ${BUILDPKGDIR}/janidoc/source/extensions
+	-mkdir -p ${BUILDPKGDIR}/janidoc/source/api
+	-mkdir -p ${BUILDPKGDIR}/janidoc/source/extensions
+	cp -Rf . ${BUILDPKGDIR}/janidoc/
+	cd ${BUILDPKGDIR}/janidoc/source/api && sphinx-apidoc --force --no-toc -o . ../../src/
+	cd ${BUILDPKGDIR}/janidoc/source/api && mv ${MODULENAME}.rst index.rst
 
 doc: janidoc apidoc
 	- [ -f transitions_graph.py ] && python transitions_graph.py
-	-cp -Rf rst/* ${BUILDDIR}/janidoc/source
-	sed -i -e "s/MODULE_NAME/${MODULENAME}/g" ${BUILDDIR}/janidoc/source/tools/index.rst
-	make -C ${BUILDDIR}/janidoc html
-	cp ${BUILDDIR}/janidoc/source/README.rst README.rst
-	-ln -s $(BUILDDIR)/docs/html generated_doc
+	-cp -Rf rst/* ${BUILDPKGDIR}/janidoc/source
+	sed -i -e "s/MODULE_NAME/${MODULENAME}/g" ${BUILDPKGDIR}/janidoc/source/tools/index.rst
+	make -C ${BUILDPKGDIR}/janidoc html
+	cp ${BUILDPKGDIR}/janidoc/source/README.rst README.rst
+	-ln -s $(BUILDPKGDIR)/docs/html generated_doc
 	@echo
 	@echo "Documentation finished."
 

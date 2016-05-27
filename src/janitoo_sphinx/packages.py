@@ -1,11 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Sources :
-
- - http://www.sphinx-doc.org/en/stable/extdev/tutorial.html
- - https://github.com/mozilla-services/cornice/blob/master/cornice/ext/sphinxext.py
-
-"""
 __license__ = """
     This file is part of Janitoo.
 
@@ -36,9 +29,13 @@ import six
 from docutils import nodes
 from docutils.parsers.rst import directives
 
-from janitoo_sphinx.base import INFO_TYPES
 from janitoo_sphinx.base import JanitooDirective
 from janitoo_sphinx.base import convert_to_list
+
+INFO_TYPES = ['title','desc', 'author', 'longdesc', 'keywords', 'license']
+"""
+Availlable informations
+"""
 
 class PackageDirective(JanitooDirective):
     """ Package directive.
@@ -47,8 +44,8 @@ class PackageDirective(JanitooDirective):
 
     Usage, in a sphinx documentation :
 
-        .. jnt-package::
-            :infos: desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
+    \.. jnt-package::
+        :infos: desc, longdesc, keywords, ... of the Janitoo package. minimal and full are group of infos. If not set, show minimal (name + desc) informations.
 
     """
     has_content = True

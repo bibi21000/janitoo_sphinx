@@ -74,6 +74,7 @@
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href=""> Using Sphinx contributions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#configuration">Configuration</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jnt-package">jnt-package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jnt-extensions">jnt-extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jnt-badges">jnt-badges</a></li>
@@ -128,6 +129,19 @@
 <h1>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h1>
 <p>Janitoo provides helpers for writing documentation with sphinx.
 All informations are extracted from setup.py.</p>
+<div class="section" id="configuration">
+<h2>Configuration<a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h2>
+<p>Edit conf.py :</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span class="c">#Janitoo contribution</span>
+
+<span class="c">#The user for github, travis, ...</span>
+<span class="n">janitoo_nickname</span> <span class="o">=</span> <span class="s">&#39;bibi21000&#39;</span>
+
+<span class="c">#Where to find sources of the janitoo package</span>
+<span class="n">janitoo_source</span> <span class="o">=</span> <span class="s">&quot;../..&quot;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="jnt-package">
 <h2>jnt-package<a class="headerlink" href="#jnt-package" title="Permalink to this headline">¶</a></h2>
 <p>You can add the package name, description and long_description of a package adding :</p>

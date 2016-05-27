@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>janitoo_sphinx.extensions &mdash; janitoo_sphinx 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinxcontrib-images/LightBox2/lightbox2/css/lightbox.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-3.3.4/united/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2/js/lightbox.min.js"></script>
+    <script type="text/javascript" src="../../_static/sphinxcontrib-images/LightBox2/lightbox2-customize/jquery-noconflict.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-3.3.4/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="janitoo_sphinx 0.0.1 documentation" href="../../index.html" />
+    <link rel="up" title="janitoo_sphinx" href="../janitoo_sphinx.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../index.html">
+          janitoo_sphinx</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.0.1</b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="../../tools/index.html">Tools</a></li>
+                <li><a href="../../api/index.html">Reference</a></li>
+                <li><a href="../../extensions/index.html">Janitoo extensions</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../using_doc.html"> Using documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../using_doc.html#the-header">The header</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for janitoo_sphinx.extensions</h1><div class="highlight"><pre>
+<span class="c"># -*- coding: utf-8 -*-</span>
+<span class="n">__license__</span> <span class="o">=</span> <span class="s">&quot;&quot;&quot;</span>
+<span class="s">    This file is part of Janitoo.</span>
+
+<span class="s">    Janitoo is free software: you can redistribute it and/or modify</span>
+<span class="s">    it under the terms of the GNU General Public License as published by</span>
+<span class="s">    the Free Software Foundation, either version 3 of the License, or</span>
+<span class="s">    (at your option) any later version.</span>
+
+<span class="s">    Janitoo is distributed in the hope that it will be useful,</span>
+<span class="s">    but WITHOUT ANY WARRANTY; without even the implied warranty of</span>
+<span class="s">    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span>
+<span class="s">    GNU General Public License for more details.</span>
+
+<span class="s">    You should have received a copy of the GNU General Public License</span>
+<span class="s">    along with Janitoo. If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
+
+<span class="s">&quot;&quot;&quot;</span>
+<span class="n">__author__</span> <span class="o">=</span> <span class="s">&#39;Sébastien GALLET aka bibi21000&#39;</span>
+<span class="n">__email__</span> <span class="o">=</span> <span class="s">&#39;bibi21000@gmail.com&#39;</span>
+<span class="n">__copyright__</span> <span class="o">=</span> <span class="s">&quot;Copyright © 2013-2014-2015-2016 Sébastien GALLET aka bibi21000&quot;</span>
+
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="c">#~ logging.getLogger(__name__).addHandler(logging.NullHandler())</span>
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="n">__name__</span><span class="p">)</span>
+
+<span class="kn">import</span> <span class="nn">six</span>
+
+<span class="kn">from</span> <span class="nn">docutils</span> <span class="kn">import</span> <span class="n">nodes</span>
+<span class="kn">from</span> <span class="nn">docutils.parsers.rst</span> <span class="kn">import</span> <span class="n">directives</span>
+
+<span class="kn">from</span> <span class="nn">janitoo_sphinx.base</span> <span class="kn">import</span> <span class="n">JanitooDirective</span>
+<span class="kn">from</span> <span class="nn">janitoo_sphinx.base</span> <span class="kn">import</span> <span class="n">convert_to_list</span>
+
+<span class="n">EXT_TYPES</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;models&#39;</span><span class="p">,</span> <span class="s">&#39;threads&#39;</span><span class="p">,</span> <span class="s">&#39;components&#39;</span><span class="p">,</span> <span class="s">&#39;bus&#39;</span><span class="p">,</span> <span class="s">&#39;values&#39;</span><span class="p">]</span>
+<span class="sd">&quot;&quot;&quot;Availlable extensions types</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ExtensionDirective"><a class="viewcode-back" href="../../api/index.html#janitoo_sphinx.extensions.ExtensionDirective">[docs]</a><span class="k">class</span> <span class="nc">ExtensionDirective</span><span class="p">(</span><span class="n">JanitooDirective</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Extension directive.</span>
+
+<span class="sd">    Injects Janitoo&#39;s extensions in the documentation.</span>
+
+<span class="sd">    Usage, in a sphinx documentation :</span>
+
+<span class="sd">    \.. jnt-extensions::</span>
+<span class="sd">        :entry: entry name of the extension. If not set, all extensions are injected.</span>
+<span class="sd">        :types: types of extension. If not set, all types are injected.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">has_content</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">option_spec</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;entry&#39;</span><span class="p">:</span> <span class="n">directives</span><span class="o">.</span><span class="n">unchanged</span><span class="p">,</span>
+            <span class="s">&#39;types&#39;</span><span class="p">:</span> <span class="n">convert_to_list</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="n">doc_field_types</span> <span class="o">=</span> <span class="p">[]</span>
+
+<div class="viewcode-block" id="ExtensionDirective.run"><a class="viewcode-back" href="../../api/index.html#janitoo_sphinx.extensions.ExtensionDirective.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">jtypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;types&#39;</span><span class="p">,</span> <span class="n">EXT_TYPES</span><span class="p">)</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s">&#39;entry&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+        <span class="n">package</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_package</span><span class="p">()</span>
+        <span class="n">pkg_map</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s">&#39;components&#39;</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;callback&#39;</span> <span class="p">:</span> <span class="n">package</span><span class="o">.</span><span class="n">get_janitoo_components</span><span class="p">,</span>
+                    <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="s">&#39;Components&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s">&#39;threads&#39;</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;callback&#39;</span> <span class="p">:</span> <span class="n">package</span><span class="o">.</span><span class="n">get_janitoo_threads</span><span class="p">,</span>
+                    <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="s">&#39;Threads (bus)&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s">&#39;bus&#39;</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;callback&#39;</span> <span class="p">:</span> <span class="n">package</span><span class="o">.</span><span class="n">get_janitoo_bus_extensions</span><span class="p">,</span>
+                    <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="s">&#39;Bus extensions&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s">&#39;values&#39;</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;callback&#39;</span> <span class="p">:</span> <span class="n">package</span><span class="o">.</span><span class="n">get_janitoo_values</span><span class="p">,</span>
+                    <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="s">&#39;Values in factory&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+            <span class="s">&#39;models&#39;</span> <span class="p">:</span> <span class="p">{</span>
+                    <span class="s">&#39;callback&#39;</span> <span class="p">:</span> <span class="n">package</span><span class="o">.</span><span class="n">get_janitoo_models</span><span class="p">,</span>
+                    <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="s">&#39;Database Models&#39;</span><span class="p">,</span>
+            <span class="p">},</span>
+        <span class="p">}</span>
+
+        <span class="n">datas</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">jtype</span> <span class="ow">in</span> <span class="n">jtypes</span><span class="p">:</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">pkg_map</span><span class="p">[</span><span class="n">jtype</span><span class="p">][</span><span class="s">&#39;callback&#39;</span><span class="p">]()</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">entry</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+                    <span class="n">datas</span><span class="p">[</span><span class="n">jtype</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;datas&#39;</span> <span class="p">:</span> <span class="n">data</span><span class="p">,</span> <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="n">pkg_map</span><span class="p">[</span><span class="n">jtype</span><span class="p">][</span><span class="s">&#39;title&#39;</span><span class="p">]}</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
+                        <span class="k">if</span> <span class="n">item</span> <span class="o">==</span> <span class="n">entry</span><span class="p">:</span>
+                            <span class="n">datas</span><span class="p">[</span><span class="n">jtype</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span> <span class="s">&#39;datas&#39;</span> <span class="p">:</span> <span class="p">{</span><span class="n">item</span> <span class="p">:</span> <span class="n">data</span><span class="p">[</span><span class="n">item</span><span class="p">]},</span> <span class="s">&#39;title&#39;</span> <span class="p">:</span> <span class="n">pkg_map</span><span class="p">[</span><span class="n">jtype</span><span class="p">][</span><span class="s">&#39;title&#39;</span><span class="p">]}</span>
+
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">_render_type</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">datas</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+
+</div>
+    <span class="k">def</span> <span class="nf">_render_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datas</span><span class="p">,</span> <span class="n">jtype</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">jtype_id</span> <span class="o">=</span> <span class="s">&quot;type-</span><span class="si">%d</span><span class="s">&quot;</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">env</span><span class="o">.</span><span class="n">new_serialno</span><span class="p">(</span><span class="s">&#39;jtype&#39;</span><span class="p">)</span>
+        <span class="n">jtype_node</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">section</span><span class="p">(</span><span class="n">ids</span><span class="o">=</span><span class="p">[</span><span class="n">jtype_id</span><span class="p">])</span>
+
+        <span class="n">title</span> <span class="o">=</span> <span class="s">&#39;</span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="n">jtype</span><span class="p">][</span><span class="s">&#39;title&#39;</span><span class="p">])</span>
+        <span class="n">jtype_node</span> <span class="o">+=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">title</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="n">jtype</span><span class="p">][</span><span class="s">&#39;datas&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">item</span> <span class="o">=</span> <span class="n">nodes</span><span class="o">.</span><span class="n">list_item</span><span class="p">()</span>
+            <span class="n">item</span> <span class="o">+=</span> <span class="p">[</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">strong</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">(</span><span class="n">data</span><span class="p">)),</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">inline</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="s">&quot; : &quot;</span><span class="p">),</span>
+                <span class="n">nodes</span><span class="o">.</span><span class="n">emphasis</span><span class="p">(</span><span class="n">text</span><span class="o">=</span><span class="n">six</span><span class="o">.</span><span class="n">text_type</span><span class="p">(</span><span class="n">datas</span><span class="p">[</span><span class="n">jtype</span><span class="p">][</span><span class="s">&#39;datas&#39;</span><span class="p">][</span><span class="n">data</span><span class="p">])),</span>
+            <span class="p">]</span>
+            <span class="n">jtype_node</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">jtype_node</span></div>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2014,2015,2016 Sébastien GALLET aka bibi2100 &lt;bibi21000@gmail.com&gt;.<br/>
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

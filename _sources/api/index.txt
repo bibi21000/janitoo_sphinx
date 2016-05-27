@@ -1,0 +1,46 @@
+janitoo_sphinx package
+======================
+
+Submodules
+----------
+
+janitoo_sphinx.badges module
+----------------------------
+
+.. automodule:: janitoo_sphinx.badges
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_sphinx.base module
+--------------------------
+
+.. automodule:: janitoo_sphinx.base
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_sphinx.extensions module
+--------------------------------
+
+.. automodule:: janitoo_sphinx.extensions
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+janitoo_sphinx.packages module
+------------------------------
+
+.. automodule:: janitoo_sphinx.packages
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: janitoo_sphinx
+    :members:
+    :undoc-members:
+    :show-inheritance:

@@ -60,22 +60,36 @@ class PackageDirective(JanitooDirective):
     def run(self):
         """
         """
-        infos = self.options.get('infos', ['desc', 'longdesc', 'keywords'])
+        infos = self.options.get('infos', ['title','desc', 'longdesc', 'keywords', 'license'])
         package = self._get_package()
 
         jpackage_id = "package-%d" % self.env.new_serialno('jpackage')
         jpackage_node = nodes.section(ids=[jpackage_id])
 
-        title = '%s' % (package.get_name())
-        jpackage_node += nodes.title(text=title)
+        if 'title' in infos:
+            title = '%s' % (package.get_name())
+            jpackage_node += nodes.title(text=title)
 
         if 'desc' in infos:
-            item = nodes.paragraph(text=six.text_type(package.get_description()))
-            jpackage_node.append(item)
+            jpackage_node.append(
+                nodes.paragraph(
+                    text=six.text_type(package.get_description())
+                )
+            )
 
         if 'longdesc' in infos:
-            item = nodes.paragraph(text=six.text_type(package.get_long_description()))
-            jpackage_node.append(item)
+            jpackage_node.append(
+                nodes.paragraph(
+                    text=six.text_type(package.get_long_description())
+                )
+            )
+
+        if 'license' in infos:
+            jpackage_node.append(
+                nodes.paragraph(
+                    text=six.text_type(package.get_license())
+                )
+            )
 
         if 'keywords' in infos:
             for data in sorted(package.get_keywords()):
@@ -84,4 +98,8 @@ class PackageDirective(JanitooDirective):
                     nodes.inline(text=six.text_type(data)),
                 ]
                 jpackage_node.append(item)
+            jpackage_node.append(
+                nodes.paragraph(
+                    text='')
+            )
         return [jpackage_node]

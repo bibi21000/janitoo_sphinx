@@ -307,8 +307,8 @@ try:
     man_pages = [
       ('index',
        '%s'%package.get_name(),
-        u'%s Documentation'%package.get_name(),
-        u'%s'%package.get_author(),
+        '%s Documentation'%package.get_name(),
+        '%s'%package.get_author(),
         'manual'),
     ]
 except Exception:
@@ -333,11 +333,11 @@ try:
     texinfo_documents = [
       ('index',
        '%s'%package.get_name(),
-        u'%s Documentation'%package.get_name(),
-        u'%s'%package.get_author(),
+       '%s Documentation'%package.get_name(),
+       '%s'%package.get_author(),
        '%s'%package.get_name(),
        '%s'%package.get_description(),
-        'Miscellaneous'),
+       'Miscellaneous'),
     ]
 except Exception:
     traceback.print_exc()
